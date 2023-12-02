@@ -14,7 +14,7 @@ number_map = {
     'nine': 'n9e'
 }
 
-class DayOne:
+class PartOne:
     def __init__(self, file_name) -> None:
         self.file = read_file(file_name)
         self.sum = 0
@@ -45,7 +45,7 @@ class DayOne:
                 continue
         return last_num
 
-class DayTwo:
+class PartTwo:
     def __init__(self, file_name) -> None:
         self.file_name = file_name
         self.file = read_file(file_name)
@@ -55,7 +55,7 @@ class DayTwo:
         for string in self.file:
             updated_string = self.convert_string_to_number(string)
 
-            get_nums = DayOne(self.file_name)
+            get_nums = PartOne(self.file_name)
             first_num = get_nums.get_first_number(updated_string)
             last_num = get_nums.get_last_number(updated_string)
 

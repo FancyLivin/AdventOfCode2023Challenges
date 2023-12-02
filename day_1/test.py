@@ -3,13 +3,13 @@ import main as m
 
 class TestDayOne(unittest.TestCase):
     def setUp(self):
-        self.day_one = m.DayOne('real_input.txt')
+        self.day_one = m.PartOne('real_input.txt')
 
     def test_calculate_sum(self):
         real_int = 56049
         test_int = 142
 
-        test = m.DayOne('test_input_one.txt')
+        test = m.PartOne('test_input_one.txt')
         test.calculate_sum_of_strings()
         self.day_one.calculate_sum_of_strings()
 
@@ -32,7 +32,7 @@ class TestDayOne(unittest.TestCase):
 
 class TestDayTwo(unittest.TestCase):
     def setUp(self):
-        self.day_two = m.DayTwo('real_input.txt')
+        self.day_two = m.PartTwo('real_input.txt')
 
     def test_convert_string_to_number(self):
         new_string = self.day_two.convert_string_to_number('two1nine')
@@ -42,7 +42,7 @@ class TestDayTwo(unittest.TestCase):
         self.assertEqual(new_string, 't2o1n9e')
 
     def test_calculate_sum_of_strings(self):
-        test = m.DayTwo('test_input_two.txt')
+        test = m.PartTwo('test_input_two.txt')
         test.calculate_sum_of_strings()
         self.day_two.calculate_sum_of_strings()
 
