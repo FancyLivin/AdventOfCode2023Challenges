@@ -47,14 +47,15 @@ class DayOne:
 
 class DayTwo:
     def __init__(self, file_name) -> None:
+        self.file_name = file_name
         self.file = read_file(file_name)
         self.sum = 0
 
-    def calculate_sum_of_strings(self, file_name) -> None:
+    def calculate_sum_of_strings(self) -> None:
         for string in self.file:
             updated_string = self.convert_string_to_number(string)
 
-            get_nums = DayOne(file_name)
+            get_nums = DayOne(self.file_name)
             first_num = get_nums.get_first_number(updated_string)
             last_num = get_nums.get_last_number(updated_string)
 

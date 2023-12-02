@@ -3,14 +3,18 @@ import main as m
 
 class TestDayOne(unittest.TestCase):
     def setUp(self):
-        self.day_one = m.DayOne('test_input_one.txt')
+        self.day_one = m.DayOne('real_input.txt')
 
     def test_calculate_sum(self):
-        # real_int = 56049
+        real_int = 56049
         test_int = 142
 
+        test = m.DayOne('test_input_one.txt')
+        test.calculate_sum_of_strings()
         self.day_one.calculate_sum_of_strings()
-        self.assertEqual(self.day_one.sum, test_int)
+
+        self.assertEqual(self.day_one.sum, real_int)
+        self.assertEqual(test.sum, test_int)
 
     def test_get_first_number(self):
         one = self.day_one.get_first_number('a1b2c3d4e5f')
@@ -39,9 +43,8 @@ class TestDayTwo(unittest.TestCase):
 
     def test_calculate_sum_of_strings(self):
         test = m.DayTwo('test_input_two.txt')
-        test.calculate_sum_of_strings('test_input_two.txt')
-        self.day_two.calculate_sum_of_strings('real_input.txt')
+        test.calculate_sum_of_strings()
+        self.day_two.calculate_sum_of_strings()
 
         self.assertEqual(test.sum, 281)
         self.assertEqual(self.day_two.sum, 54530)
-
