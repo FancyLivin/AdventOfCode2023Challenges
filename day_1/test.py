@@ -3,8 +3,7 @@ import main as m
 
 class TestDayOne(unittest.TestCase):
     def setUp(self):
-        self.day_one = m.DayOne('test_input.txt')
-        self.assertIsNotNone(self.day_one.file)
+        self.day_one = m.DayOne('test_input_one.txt')
 
     def test_calculate_sum(self):
         # real_int = 56049
@@ -28,4 +27,21 @@ class TestDayOne(unittest.TestCase):
         self.assertEqual(two, 2)
 
 class TestDayTwo(unittest.TestCase):
-    pass
+    def setUp(self):
+        self.day_two = m.DayTwo('real_input.txt')
+
+    def test_convert_string_to_number(self):
+        new_string = self.day_two.convert_string_to_number('two1nine')
+        shared_num_string = self.day_two.convert_string_to_number('eightwothree')
+
+        self.assertEqual(shared_num_string, 'e8t2ot3e')
+        self.assertEqual(new_string, 't2o1n9e')
+
+    def test_calculate_sum_of_strings(self):
+        test = m.DayTwo('test_input_two.txt')
+        test.calculate_sum_of_strings('test_input_two.txt')
+        self.day_two.calculate_sum_of_strings('real_input.txt')
+
+        self.assertEqual(test.sum, 281)
+        self.assertEqual(self.day_two.sum, 54530)
+

@@ -1,6 +1,18 @@
 def read_file(file_name):
     with open(file_name, 'r') as file:
         return file.readlines()
+    
+number_map = {
+    'one': 'o1e',
+    'two': 't2o',
+    'three': 't3e',
+    'four': 'f4r',
+    'five': 'f5e',
+    'six': 's6x',
+    'seven': 's7n',
+    'eight': 'e8t',
+    'nine': 'n9e'
+}
 
 class DayOne:
     def __init__(self, file_name) -> None:
@@ -34,4 +46,22 @@ class DayOne:
         return last_num
 
 class DayTwo:
-    pass
+    def __init__(self, file_name) -> None:
+        self.file = read_file(file_name)
+        self.sum = 0
+
+    def calculate_sum_of_strings(self, file_name) -> None:
+        for string in self.file:
+            updated_string = self.convert_string_to_number(string)
+
+            get_nums = DayOne(file_name)
+            first_num = get_nums.get_first_number(updated_string)
+            last_num = get_nums.get_last_number(updated_string)
+
+            combined_num = str(first_num) + str(last_num)
+            self.sum += int(combined_num)
+
+    def convert_string_to_number(self, string) -> str:
+        for word, number in number_map.items():
+            string = string.replace(word, number)
+        return string
