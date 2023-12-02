@@ -1,7 +1,7 @@
 import unittest
 import main as m
 
-class TestDayOne(unittest.TestCase):
+class TestPartOne(unittest.TestCase):
     def setUp(self):
         self.day_one = m.PartOne('real_input.txt')
 
@@ -30,7 +30,7 @@ class TestDayOne(unittest.TestCase):
         self.assertEqual(seven, 7)
         self.assertEqual(two, 2)
 
-class TestDayTwo(unittest.TestCase):
+class TestPartTwo(unittest.TestCase):
     def setUp(self):
         self.day_two = m.PartTwo('real_input.txt')
 
