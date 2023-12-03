@@ -1,7 +1,7 @@
 def read_file(file_name):
     with open(file_name, 'r') as file:
         return file.readlines()
-    
+
 number_map = {
     'one': 'o1e',
     'two': 't2o',
@@ -15,8 +15,8 @@ number_map = {
 }
 
 class PartOne:
-    def __init__(self, file_name) -> None:
-        self.file = read_file(file_name)
+    def __init__(self, txt_file) -> None:
+        self.file = read_file(txt_file)
         self.sum = 0
 
     def calculate_sum_of_strings(self) -> None:
@@ -46,16 +46,16 @@ class PartOne:
         return last_num
 
 class PartTwo:
-    def __init__(self, file_name) -> None:
-        self.file_name = file_name
-        self.file = read_file(file_name)
+    def __init__(self, txt_file) -> None:
+        self.txt_name = txt_file
+        self.file = read_file(txt_file)
         self.sum = 0
 
     def calculate_sum_of_strings(self) -> None:
         for string in self.file:
             updated_string = self.convert_string_to_number(string)
 
-            get_nums = PartOne(self.file_name)
+            get_nums = PartOne(self.txt_name)
             first_num = get_nums.get_first_number(updated_string)
             last_num = get_nums.get_last_number(updated_string)
 
