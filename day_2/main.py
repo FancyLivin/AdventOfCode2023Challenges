@@ -1,4 +1,4 @@
-# 12 red cubes, 13 green cubes, 14 blue cubes
+# Part 1: 12 red cubes, 13 green cubes, 14 blue cubes maximum
 def read_file(file_name):
     with open(file_name, 'r') as file:
         return file.readlines()
