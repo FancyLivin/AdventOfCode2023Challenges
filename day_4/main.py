@@ -40,10 +40,46 @@ class PartTwo:
     def __init__(self, txt_file) -> None:
         self.txt_file = txt_file
         self.file = read_file(txt_file)
+        self.card_dict = {}
         self.card_total = 0
-    
 
+    def populate_card_dict(self) -> None:
+        for current_card in range(len(self.file)):
+            self.card_dict[current_card] = 1
+
+    def get_card_total(self) -> int:
+        self.update_card_dict()
+        for _, copies in self.card_dict.items():
+            self.card_total += copies
+        return self.card_total
+
+    def update_card_dict(self) -> None:
+        for card_index, card in enumerate(self.file):
+            card_wins = self.get_card_wins(card)
+            for win in range(card_wins):
+                card_dupes = self.card_dict[card_index]
+                self.card_dict[card_index + win + 1] += (1 * card_dupes) 
+
+    def get_card_wins(self, string) -> int:
+        card_wins = 0
+        card_numbers = string.split(' | ')
+        nums = PartOne(self.txt_file)
+
+        winning_numbers = nums.get_winning_numbers(card_numbers[0])
+        your_numbers = nums.get_numbers_you_have(card_numbers[1])
+
+        for number in your_numbers:
+            if number in winning_numbers:
+                card_wins += 1
+
+        return card_wins
 
 part_one = PartOne('real_input.txt')
 sum_one = part_one.get_point_sum()
+
+part_two = PartTwo('real_input.txt')
+part_two.populate_card_dict()
+total_two = part_two.get_card_total()
+
 print('Part One:', sum_one)
+print('Part Two:', total_two)

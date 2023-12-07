@@ -36,4 +36,28 @@ class TestPartOne(unittest.TestCase):
         
 
 class TestPartTwo(unittest.TestCase):
-    pass
+    def setUp(self):
+        self.part_two = m.PartTwo('test_input_one.txt')
+        self.part_two.populate_card_dict()
+
+    def test_populate_card_dict(self):
+        test_dict = {0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1}
+
+        self.assertEqual(self.part_two.card_dict, test_dict)
+
+    def test_get_card_total(self):
+        total = self.part_two.get_card_total()
+
+        self.assertEqual(total, 30)
+
+    def test_update_card_dict(self):
+        self.part_two.update_card_dict()
+        test_dict = {0: 1, 1: 2, 2: 4, 3: 8, 4: 14, 5: 1}
+
+        self.assertEqual(self.part_two.card_dict, test_dict)
+
+    def test_get_card_wins(self):
+        card_one = 'Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53'
+        win_one = self.part_two.get_card_wins(card_one)
+
+        self.assertEqual(win_one, 4)
