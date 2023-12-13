@@ -92,6 +92,7 @@ class PartTwo:
     def __init__(self, file_name) -> None:
         self.file_name = file_name
         self.input = read_file(file_name)
+        self.big_counter = 0
         self.seeds = []
         self.lowest_location = float('inf')
 
@@ -100,6 +101,9 @@ class PartTwo:
         part_one.store_conversion_maps()
         for start, length in zip(part_one.seeds[::2], part_one.seeds[1::2]):
             for seed in range(start, start + length):
+                self.big_counter += 1
+                if self.big_counter % 10000000 == 0:
+                    print(f"current number passed is {self.big_counter}")
                 location = part_one.convert_seed_to_location(seed)
                 if location < self.lowest_location:
                     self.lowest_location = location
