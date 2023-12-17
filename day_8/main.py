@@ -1,3 +1,6 @@
+import math
+import time
+
 def read_directions(file_name):
     with open(file_name, 'r') as file:
         return file.readline().strip()
@@ -32,7 +35,27 @@ class PartOne:
         return steps
 
 class PartTwo:
-    pass
+    def __init__(self, file_name) -> None:
+        self.directions = read_directions(file_name)
+        self.network = read_network(file_name)
+        self.steps = self.find_total_steps()
+
+    def find_total_steps(self) -> int:
+        nodes = self.get_starting_nodes()
+        for index, node in enumerate(nodes):
+            steps = 0
+            while node.endswith('Z') == False:
+                direction = direction_map[self.directions[steps % len(self.directions)]]
+                node = self.network[node][direction]
+                steps+=1
+            nodes[index] = steps
+        return math.lcm(*nodes)
+
+    def get_starting_nodes(self) -> list:
+        return [node for node in self.network.keys() if node.endswith('A')]
 
 p_one = PartOne('real.txt')
 print('Part One:', p_one.steps)
+
+p_two = PartTwo('real.txt')
+print('Part Two:', p_two.steps)
