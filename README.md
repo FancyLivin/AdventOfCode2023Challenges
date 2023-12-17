@@ -2,15 +2,15 @@
 
 | Day | Part 1 | Part 2 |
 |-----|--------|--------|
-| 1 | :*: | :*: |
-| 2 | :*: | :*: |
-| 3 | :*: | :*: |
-| 4 | :*: | :*: |
-| 5 | :*: | :*: |
-| 6 | :*: | :*: |
-| 7 | :*: | :*: |
-| 8 | :*: | :*: |
-| 9 | :*: | :*: |
+| 1 | :white_check_mark: | :white_check_mark: |
+| 2 | :white_check_mark: | :white_check_mark: |
+| 3 | :white_check_mark: | :white_check_mark: |
+| 4 | :white_check_mark: | :white_check_mark: |
+| 5 | :white_check_mark: | :white_check_mark: |
+| 6 | :white_check_mark: | :white_check_mark: |
+| 7 | :white_check_mark: | :white_check_mark: |
+| 8 | :white_check_mark: | :white_check_mark: |
+| 9 | :white_check_mark: | :white_check_mark: |
 | 10 | :x: | :x: |
 | 11 | :x: | :x: |
 | 12 | :x: | :x: |
