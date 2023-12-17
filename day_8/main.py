@@ -1,5 +1,4 @@
 import math
-import time
 
 def read_directions(file_name):
     with open(file_name, 'r') as file:
