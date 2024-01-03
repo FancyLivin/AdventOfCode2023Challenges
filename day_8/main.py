@@ -16,7 +16,7 @@ def read_network(file_name):
             dictionary[key] = tuple(value.lstrip('(').rstrip(')').split(', '))
     return dictionary
 
-direction_map = {'L': 0, 'R': 1}
+dir_map = {'L': 0, 'R': 1}
 
 class PartOne:
     def __init__(self, file_name) -> None:
@@ -28,7 +28,7 @@ class PartOne:
         steps = 0
         node = 'AAA'
         while node != 'ZZZ':
-            direction = direction_map[self.directions[steps % len(self.directions)]]
+            direction = dir_map[self.directions[steps % len(self.directions)]]
             node = self.network[node][direction]
             steps+=1
         return steps
@@ -44,8 +44,8 @@ class PartTwo:
         for index, node in enumerate(nodes):
             steps = 0
             while node.endswith('Z') == False:
-                direction = direction_map[self.directions[steps % len(self.directions)]]
-                node = self.network[node][direction]
+                dir = dir_map[self.directions[steps % len(self.directions)]]
+                node = self.network[node][dir]
                 steps+=1
             nodes[index] = steps
         return math.lcm(*nodes)

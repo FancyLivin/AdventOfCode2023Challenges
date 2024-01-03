@@ -25,10 +25,10 @@ class PartOne:
     
     def get_total_record_beaters(self) -> int:
         for race, _ in self.races.items():
-            self.record_beaters *= self.get_current_race_record_beaters(race)
+            self.record_beaters *= self.get_current_race_record(race)
         return self.record_beaters
     
-    def get_current_race_record_beaters(self, race) -> int:
+    def get_current_race_record(self, race) -> int:
         possible_records = 0
         total_time = self.races[race]['Time']
 

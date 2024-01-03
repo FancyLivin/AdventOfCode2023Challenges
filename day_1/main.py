@@ -53,7 +53,7 @@ class PartTwo:
 
     def calculate_sum_of_strings(self) -> None:
         for string in self.file:
-            updated_string = self.convert_string_to_number(string)
+            updated_string = self.convert_str_to_num(string)
 
             get_nums = PartOne(self.txt_name)
             first_num = get_nums.get_first_number(updated_string)
@@ -62,7 +62,7 @@ class PartTwo:
             combined_num = str(first_num) + str(last_num)
             self.sum += int(combined_num)
 
-    def convert_string_to_number(self, string) -> str:
+    def convert_str_to_num(self, string) -> str:
         for word, number in number_map.items():
             string = string.replace(word, number)
         return string

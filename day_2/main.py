@@ -71,13 +71,13 @@ class PartTwo:
         return self.power_sum
 
     def get_cube_power(self, string) -> int:
-        max_red_cubes = self.get_maximum_cube_count(string, 'red')
-        max_green_cubes = self.get_maximum_cube_count(string, 'green')
-        max_blue_cubes = self.get_maximum_cube_count(string, 'blue')
+        max_red_cubes = self.get_max_cube_count(string, 'red')
+        max_green_cubes = self.get_max_cube_count(string, 'green')
+        max_blue_cubes = self.get_max_cube_count(string, 'blue')
 
         return max_red_cubes * max_green_cubes * max_blue_cubes
 
-    def get_maximum_cube_count(self, string, cube_color) -> int:
+    def get_max_cube_count(self, string, cube_color) -> int:
         max_cubes = 0
         cubes = PartOne(self.txt_file)
 

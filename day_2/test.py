@@ -59,9 +59,9 @@ class TestPartTwo(unittest.TestCase):
 
     def test_get_maximum_cube_count(self):
         game_three = 'Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red'
-        max_red_cubes = self.part_two.get_maximum_cube_count(game_three, 'red')
-        max_green_cubes = self.part_two.get_maximum_cube_count(game_three, 'green')
-        max_blue_cubes = self.part_two.get_maximum_cube_count(game_three, 'blue')
+        max_red_cubes = self.part_two.get_max_cube_count(game_three, 'red')
+        max_green_cubes = self.part_two.get_max_cube_count(game_three, 'green')
+        max_blue_cubes = self.part_two.get_max_cube_count(game_three, 'blue')
 
         self.assertEqual(max_red_cubes, 20)
         self.assertEqual(max_green_cubes, 13)

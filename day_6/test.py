@@ -19,9 +19,9 @@ class TestPartOne(unittest.TestCase):
         self.assertEqual(total_records, 288)
 
     def test_get_current_race_record_beaters(self):
-        race_one_records = self.part_one.get_current_race_record_beaters('race1')
-        race_two_records = self.part_one.get_current_race_record_beaters('race2')
-        race_three_records = self.part_one.get_current_race_record_beaters('race3')
+        race_one_records = self.part_one.get_current_race_record('race1')
+        race_two_records = self.part_one.get_current_race_record('race2')
+        race_three_records = self.part_one.get_current_race_record('race3')
 
         self.assertEqual(race_one_records, 4)
         self.assertEqual(race_two_records, 8)

@@ -35,8 +35,8 @@ class TestPartTwo(unittest.TestCase):
         self.part_two = m.PartTwo('real_input.txt')
 
     def test_convert_string_to_number(self):
-        new_string = self.part_two.convert_string_to_number('two1nine')
-        shared_num_string = self.part_two.convert_string_to_number('eightwothree')
+        new_string = self.part_two.convert_str_to_num('two1nine')
+        shared_num_string = self.part_two.convert_str_to_num('eightwothree')
 
         self.assertEqual(shared_num_string, 'e8t2ot3e')
         self.assertEqual(new_string, 't2o1n9e')

@@ -4,7 +4,6 @@ def read_file(file_name):
 
 SYMBOL_LIST = ['*', '-', '+', '@', '#', '$', '%', '&', '=', '/']
 GEAR = '*'
-OFFSET = 1
 
 class PartOne:
     def __init__(self, txt_file) -> None:
@@ -31,28 +30,36 @@ class PartOne:
         return False
     
     def get_sum_around_symbol(self, x, y) -> int:
-        max_x = len(self.engine_map) - OFFSET
-        max_y = len(self.engine_map[0]) - OFFSET
+        max_x = len(self.engine_map) - 1
+        max_y = len(self.engine_map[0]) - 1
         sum_around_symbol = 0
 
         if y != 0:
             if x != 0:
-                sum_around_symbol += self.extract_part_number(x - OFFSET, y - OFFSET) # top left
-            sum_around_symbol += self.extract_part_number(x, y - OFFSET) # top middle
+            # top left
+                sum_around_symbol += self.extract_part_number(x - 1, y - 1)
+            # top middle
+            sum_around_symbol += self.extract_part_number(x, y - 1)
             if x != max_x:
-                sum_around_symbol += self.extract_part_number(x + OFFSET, y - OFFSET) # top right
+            # top right
+                sum_around_symbol += self.extract_part_number(x + 1, y - 1)
 
         if x != 0:
-            sum_around_symbol += self.extract_part_number(x - OFFSET, y) # middle left
+            # middle left
+            sum_around_symbol += self.extract_part_number(x - 1, y)
         if x != max_x:
-            sum_around_symbol += self.extract_part_number(x + OFFSET, y) # middle right
+            # middle right
+            sum_around_symbol += self.extract_part_number(x + 1, y)
 
         if y != max_y:
             if x != 0:
-                sum_around_symbol += self.extract_part_number(x - OFFSET, y + OFFSET) # bottom left
-            sum_around_symbol += self.extract_part_number(x, y + OFFSET) # bottom middle
+            # bottom left
+                sum_around_symbol += self.extract_part_number(x - 1, y + 1)
+            # bottom middle
+            sum_around_symbol += self.extract_part_number(x, y + 1)
             if x != max_x:
-                sum_around_symbol += self.extract_part_number(x + OFFSET, y + OFFSET) # bottom right
+            # bottom right
+                sum_around_symbol += self.extract_part_number(x + 1, y + 1)
 
         return sum_around_symbol
     
@@ -69,8 +76,8 @@ class PartOne:
 
     def go_to_part_number_start_index(self, x, y) -> int:
         while (self.engine_map[y][x].isdigit()):
-            x -= OFFSET
-        x += OFFSET
+            x-=1
+        x+=1
         return x
 
     def get_part_number(self, x, y) -> int:
@@ -79,7 +86,7 @@ class PartOne:
 
         while (self.engine_map[y][x].isdigit()):
             part_number += self.engine_map[y][x]
-            x += OFFSET
+            x+=1
             if x == max_x:
                 break
         return int(part_number)
@@ -92,8 +99,10 @@ class PartOne:
         max_x = len(self.engine_map)
 
         while (self.engine_map[y][x].isdigit()):
-            self.engine_map[y] = self.engine_map[y][:x] + '.' + self.engine_map[y][x + OFFSET:]
-            x += OFFSET
+            self.engine_map[y] = (
+                self.engine_map[y][:x] + '.' + self.engine_map[y][x+1:]
+            )
+            x+=1
             if x == max_x:
                 break
 
@@ -124,29 +133,37 @@ class PartTwo:
     def get_gear_ratio(self, x, y):
         gear_parts = []
 
-        max_x = len(self.engine_map) - OFFSET
-        max_y = len(self.engine_map[0]) - OFFSET
+        max_x = len(self.engine_map) - 1
+        max_y = len(self.engine_map[0]) - 1
 
         if y != 0:
             if x != 0:
-                gear_parts.append(self.extract_part_number(x - OFFSET, y - OFFSET)) # top left
-            if self.engine_map[y - OFFSET][x - OFFSET].isdigit() == False:
-                gear_parts.append(self.extract_part_number(x, y - OFFSET)) # top middle
-            if x != max_x and self.engine_map[y - OFFSET][x].isdigit() == False:
-                gear_parts.append(self.extract_part_number(x + OFFSET, y - OFFSET)) # top right
+            # top left
+                gear_parts.append(self.extract_part_number(x - 1, y - 1))
+            if self.engine_map[y - 1][x - 1].isdigit() == False:
+            # top middle
+                gear_parts.append(self.extract_part_number(x, y - 1))
+            if x != max_x and self.engine_map[y - 1][x].isdigit() == False:
+            # top right
+                gear_parts.append(self.extract_part_number(x + 1, y - 1))
 
         if x != 0:
-            gear_parts.append(self.extract_part_number(x - OFFSET, y)) # middle left
+            # middle left
+            gear_parts.append(self.extract_part_number(x - 1, y))
         if x != max_x:
-            gear_parts.append(self.extract_part_number(x + OFFSET, y)) # middle right
+            # middle right
+            gear_parts.append(self.extract_part_number(x + 1, y))
 
         if y != max_y:
             if x != 0:
-                gear_parts.append(self.extract_part_number(x - OFFSET, y + OFFSET)) # bottom left
-            if self.engine_map[y + OFFSET][x - OFFSET].isdigit() == False:
-                gear_parts.append(self.extract_part_number(x, y + OFFSET)) # bottom middle
-            if x != max_x and self.engine_map[y + OFFSET][x].isdigit() == False:
-                gear_parts.append(self.extract_part_number(x + OFFSET, y + OFFSET)) # bottom right
+            # bottom left
+                gear_parts.append(self.extract_part_number(x - 1, y + 1))
+            if self.engine_map[y + 1][x - 1].isdigit() == False:
+            # bottom middle
+                gear_parts.append(self.extract_part_number(x, y + 1))
+            if x != max_x and self.engine_map[y + 1][x].isdigit() == False:
+            # bottom right
+                gear_parts.append(self.extract_part_number(x + 1, y + 1))
         
         gear_parts = list(filter(lambda x: x != None, gear_parts))
         adjacent_part_numbers = len(gear_parts)

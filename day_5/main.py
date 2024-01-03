@@ -44,9 +44,9 @@ class PartOne:
         map_name = f'{source_type}_{dest_type}_map'
         map_list = getattr(self, map_name)
 
-        for dest_start, source_start, range_len in map_list:
-            if source_val >= source_start and source_val < source_start + range_len:
-                return source_val - (source_start - dest_start)
+        for dest_start, src_start, range_len in map_list:
+            if source_val >= src_start and source_val < src_start + range_len:
+                return source_val - (src_start - dest_start)
         return dest_val
 
     def store_conversion_maps(self) -> None:

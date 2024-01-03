@@ -31,8 +31,8 @@ class TestPartOne(unittest.TestCase):
 
     def test_get_numbers_you_have(self):
         card_one = self.part_one.get_numbers_you_have('83 86  6 31 17  9 48 53')
-
-        self.assertEqual(card_one, ['83', '86', '6', '31', '17', '9', '48', '53'])
+        test_card = ['83', '86', '6', '31', '17', '9', '48', '53']
+        self.assertEqual(card_one, test_card)
         
 
 class TestPartTwo(unittest.TestCase):
