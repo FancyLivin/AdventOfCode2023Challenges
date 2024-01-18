@@ -55,6 +55,7 @@ class CosmicExpansion:
             actual_x+=1
         return galaxies
 
+    # distance calculated using manhattan distance formula
     def get_minimum_travel_steps(self, p, q) -> int:
         return abs(p[0] - q[0]) + abs(p[1] - q[1])
 
