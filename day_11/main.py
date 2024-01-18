@@ -41,18 +41,18 @@ class CosmicExpansion:
     
     def get_galaxy_indicies(self, universe, expansion_rate) -> list:
         galaxies = []
-        actual_x = 0
+        expanded_x = 0
         for x in range(len(universe)):
-            actual_y = 0
+            expanded_y = 0
             if '|' in universe[x]:
-                actual_x+=expansion_rate
+                expanded_x+=expansion_rate
             for y in range(len(universe[0])):
                 if universe[x][y] in ['-', '+']:
-                    actual_y+=expansion_rate
+                    expanded_y+=expansion_rate
                 if universe[x][y] == '#':
-                    galaxies.append((actual_x,actual_y))
-                actual_y+=1
-            actual_x+=1
+                    galaxies.append((expanded_x,expanded_y))
+                expanded_y+=1
+            expanded_x+=1
         return galaxies
 
     # distance calculated using manhattan distance formula
