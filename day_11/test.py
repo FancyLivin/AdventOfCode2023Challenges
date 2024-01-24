@@ -74,6 +74,3 @@ class TestPartOne(unittest.TestCase):
     def test_get_minimum_steps(self):
         distance = self.one.get_minimum_travel_steps((6,1), (11,5))
         self.assertEqual(distance, 9)
-
-class TestPartTwo(unittest.TestCase):
-    pass

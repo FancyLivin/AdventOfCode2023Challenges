@@ -1,7 +1,6 @@
 def read_file(file_name):
     with open(file_name, 'r') as file:
-        file = file.read().splitlines()
-        return file
+        return file.read().splitlines()
 
 class CosmicExpansion:
     def __init__(self, text_file) -> None:

@@ -14,7 +14,7 @@
 | 10 | :white_check_mark: | :white_check_mark: |
 | 11 | :white_check_mark: | :white_check_mark: |
 | 12 | :x: | :x: |
-| 13 | :x: | :x: |
+| 13 | :white_check_mark: | :white_check_mark: |
 | 14 | :x: | :x: |
 | 15 | :x: | :x: |
 | 16 | :x: | :x: |
