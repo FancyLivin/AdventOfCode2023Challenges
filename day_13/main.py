@@ -49,7 +49,6 @@ class PointOfIncidence:
         if (is_p2 and has_smudge) or is_p2 == False:
             return True
         return False
-        
     
     def is_smudge(self, line1, line2) -> bool:
         return True if sum(1 for var1, var2 in zip(line1, line2) if var1 != var2) == 1 else False
